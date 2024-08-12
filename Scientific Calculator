@@ -1,0 +1,108 @@
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        boolean exit = false;
+
+        while (!exit){
+            System.out.println("Select an operation");
+            System.out.println("1. Addition");
+            System.out.println("2. Substraction");
+            System.out.println("3. Multiplication");
+            System.out.println("4 Square Root");
+            System.out.println("5. Division");
+            System.out.println("6. Exponentiation");
+            System.out.println("7. Currency conversion");
+            System.out.println("8. Temperature conversion");
+            System.out.println("9. Exit");
+
+            int choice = scanner.nextInt();
+
+            switch (choice){
+                case 1:
+                    System.out.println("Enter two numbers");
+                    double num1 = scanner.nextDouble();
+                    double num2 = scanner.nextDouble();
+                    System.out.println(num1 + " + " + num2 + " = " + (num1 + num2));
+                    break;
+                case 2:
+                    System.out.println("Enter two numbers");
+                    double sub1 = scanner.nextDouble();
+                    double sub2 = scanner.nextDouble();
+                    System.out.println(sub1 + " - " + sub2 + " = " + (sub1 - sub2));
+                    break;
+                case 3:
+                    System.out.println("Enter two numbers");
+                    double mul1 = scanner.nextDouble();
+                    double mul2 = scanner.nextDouble();
+                    System.out.println(mul1 + " * " + mul2 + " = " + (mul1 * mul2));
+                    break;
+                case 4:
+                    System.out.println("Enter a number");
+                    double sqrtNum = scanner.nextDouble();
+                    if(sqrtNum >= 0){
+                        System.out.println("Square root of " + sqrtNum + " = " + Math.sqrt(sqrtNum));
+                    } else {
+                        System.out.println("Invalid input : Square root of a negative number is not defined");
+                    }
+                    break;
+                case 5:
+                    System.out.println("Enter two numbers");
+                    double div1 = scanner.nextDouble();
+                    double div2 = scanner.nextDouble();
+                    if (div2 != 0) {
+                        System.out.println(div1 + " / " + div2 + " = " + (div1 / div2));
+                    }
+                    else {
+                        System.out.println("Invalid input : Division by zero is not allowed");
+                    }
+                    break;
+                case 6:
+                    System.out.println("Enter two numbers");
+                    double base = scanner.nextDouble();
+                    double exponent = scanner .nextDouble();
+                    System.out.println(base + " ^ " + exponent + " = " + Math.pow(base, exponent));
+                    break;
+                case 7:
+                    System.out.println("Select Conversion");
+                    System.out.println("1. USD To EURO");
+                    System.out.println("2. EURO To USD");
+                    int currChoice = scanner.nextInt();
+                    System.out.println("Enter Amount");
+                    double amount = scanner.nextDouble();
+                    double conversionRate;
+                    if (currChoice == 1){
+                        conversionRate = 0.83;
+                        System.out.println(amount + " USD = " + (amount * conversionRate) + " EURO");
+                    }
+                    else{
+                        conversionRate = 1.16;
+                        System.out.println(amount + " EURO = " + (amount * conversionRate) + " USD");
+                    }
+                    break;
+                case 8:
+                    System.out.println("Select Conversion");
+                    System.out.println("1. Celsius to Fahrenheit");
+                    System.out.println("2. Fahrenheit to Celsius");
+                    int tempChoice = scanner.nextInt();
+                    System.out.println("Enter The Temperature");
+                    double temp = scanner.nextDouble();
+                    if (tempChoice == 1){
+                        System.out.println(temp + " Celsius = " + ((temp * 9/5) + 32) + " °F");
+                    }
+                    else{
+                        System.out.println(temp + " Fahrenheit = " + ((temp - 32) * 5/9) + " °C");
+                    }
+                    break;
+                case 9:
+                    exit = true;
+                    break;
+                default:
+                    System.out.println("Error:Invalid input");
+
+            }
+        }
+        scanner.close();
+    }
+}
